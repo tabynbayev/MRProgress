@@ -808,7 +808,7 @@ static void *MRProgressOverlayViewObservationContext = &MRProgressOverlayViewObs
                       NSStringFromSelector(@selector(setProgress:animated:)));
             #endif
         }
-        [((id)self.modeView) setProgress:self.progress];
+        [((id)self.modeView) performSelector:@selector(setProgress:) withObject:@(self.progress)];
     } else {
         NSAssert(self.mode == MRProgressOverlayViewModeDeterminateCircular
                  || self.mode == MRProgressOverlayViewModeDeterminateHorizontalBar,
